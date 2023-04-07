@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Olá!!!!")
+    res.send("Olá!!!!!")
 });
 
 const PORT = 5000;

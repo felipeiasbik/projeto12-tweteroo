@@ -49,6 +49,16 @@ app.get("/tweets", (req, res) => {
     res.send(tweetsPictures);
 });
 
+// RECEBER TWEETS DO USUÁRIO
+app.get("/tweets/:username", (req, res) => {
+
+    const {username} = req.params;
+
+    const tweetsUser = tweets.filter( user => user.username === username);
+
+    res.send(tweetsUser);
+});
+
 // ENVIOS DOS TWEETS
 app.post("/tweets", (req, res) => {
 

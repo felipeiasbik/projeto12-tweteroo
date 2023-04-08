@@ -26,6 +26,10 @@ app.post("/sign-up", (req, res) => {
         return res.status(400).send("Todos os campos são obrigatórios!");
     }
 
+    if (/^[0-9]+$/.test(username) || /^[0-9]+$/.test(avatar)){
+        return res.status(400).send("Todos os campos são obrigatórios!");
+    }
+
     users.push({username, avatar});
 
     res.status(201).send("OK");
@@ -53,6 +57,10 @@ app.post("/tweets", (req, res) => {
     const userCurrent = users.find( user => user.username === username);
 
     if (username === "" || tweet === ""){
+        return res.status(400).send("Todos os campos são obrigatórios!");
+    }
+
+    if (/^[0-9]+$/.test(username) || /^[0-9]+$/.test(tweet)){
         return res.status(400).send("Todos os campos são obrigatórios!");
     }
 
